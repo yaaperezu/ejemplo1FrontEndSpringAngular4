@@ -3,7 +3,6 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Primer Nombre</th>
       <th scope="col">Segundo Nombre</th>
       <th scope="col">Primer Apellido</th>
@@ -13,14 +12,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Yasser</td>
-      <td>Alexander</td>
-      <td>Pérez</td>
-      <td>Urariyu</td>
-      <td>3015668291</td>
-      <td>Cra 73B</td>
+    <tr *ngFor="let item of users">
+      <td>{{item.firsName}}</td>
+      <td>{{item.secondName}}</td>
+      <td>{{item.firsSurname}}</td>
+      <td>{{item.secondSurname}}</td>
+      <td>{{item.phone}}</td>
+      <td>{{item.addres}}</td>
     </tr>
   </tbody>
 </table>
