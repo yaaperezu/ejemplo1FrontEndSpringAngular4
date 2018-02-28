@@ -10,8 +10,12 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  public getUsers(): Observable<UserModel[]>{
+  public getUsers(): Observable<UserModel[]> {
     return this.http.get<UserModel[]>("http://localhost:8280/getUsers");
+  }
+
+  public deleteUser(user: UserModel): void {
+    this.http.post("http://localhost:8280/deleteUser", JSON.stringify(user)).subscribe();
   }
 
 }

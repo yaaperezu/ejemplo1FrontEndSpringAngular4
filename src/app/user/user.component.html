@@ -9,6 +9,7 @@
       <th scope="col">Segundo Apellido</th>
       <th scope="col">Telefono</th>
       <th scope="col">Dirección</th>
+      <th scope="col">Acción</th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +20,10 @@
       <td>{{item.secondSurname}}</td>
       <td>{{item.phone}}</td>
       <td>{{item.addres}}</td>
+      <td>
+        <img src="../assets/user_red_edit.png" class="editIcon" (click)="editUser(item)">
+        <img src="../assets/user_red_delete2.png" class="editIcon" (click)="deleteUser(item)">
+      </td>
     </tr>
   </tbody>
 </table>

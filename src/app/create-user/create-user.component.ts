@@ -18,14 +18,17 @@ export class CreateUserComponent implements OnInit {
   private messages: string = "";
 
   constructor(private createUserService: CreateUserService, private router: Router) {
-    this.user = new UserModel();
+    if (sessionStorage.getItem("user")) {
+      this.user = JSON.parse(sessionStorage.getItem("user"));
+    } else {
+      this.user = new UserModel();
+    }
   }
 
   ngOnInit() {
   }
 
   public saveOrUpdate(): void {
-    console.log('Ingresa a guardar');
     this.isValid = this.createUserService.validate(this.user);
 
     if (this.isValid) {
@@ -40,6 +43,7 @@ export class CreateUserComponent implements OnInit {
     } else {
       this.messages = "Los campos con * son obligatorios";
     }
+    sessionStorage.clear();
   }
 
 }
